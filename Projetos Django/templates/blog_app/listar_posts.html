@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blog da Papelaria</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'blog_app/style.css' %}">
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a href="/" class="logo">Perart | Nosso Blog</a>
+                    <ul class="nav-links">
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="posts-recentes">
+                <h2>Postagens Recentes</h2>
+                <div class="lista-posts">
+                    {% for post in posts %}
+                        <article class="card">
+                            <a href="{% url 'detalhe_post' post.id %}">
+                                <div class="card__conteudo">
+                                    {% if post.imagem %}
+                                        <img src="{{ post.imagem.url }}" alt="{{ post.titulo }}" class="card__imagem">
+                                    {% endif %}
+                                    <h3 class="card__titulo">{{ post.titulo }}</h3>
+                                    <p class="card__meta">Por {{ post.autor }} em {{ post.data_criacao|date:"d/m/Y" }}</p>
+                                </div>
+                            </a>
+                        </article>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2023 Blog da Perart Papelaria. Todos os direitos reservados.</p>
+        </footer>
+    </body>
+</html>

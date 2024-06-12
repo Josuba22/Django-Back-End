@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ post.titulo }}</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'blog_app/style.css' %}">
+    </head>
+
+    <body>
+        <article>
+            <h2>{{ post.titulo }}</h2>
+            <p>Por {{ post.autor }} em {{ post.data_criacao }}</p>
+            {% if post.imagem %}
+                <img src="{{ post.imagem.url }}" alt="{{ post.titulo }}" width="400">
+            {% endif %}
+            <p>{{ post.conteudo }}</p>
+        </article>
+
+        <a href="{% url 'listar_posts' %}">Voltar para a lista de posts</a>
+    </body>
+</html>
