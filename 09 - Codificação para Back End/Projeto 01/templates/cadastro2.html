@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Usuário - Meu Blog</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/css/style2.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Meu Blog</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Cadastre-se</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Cadastrar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 - Meu Blog</p>
+    </footer>
+</body>
+</html>
