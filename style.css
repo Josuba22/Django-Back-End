@@ -38,10 +38,24 @@ header .container{
 header .logo h2{
     color: #215e9c;
     cursor: pointer;
+    font-size: 30px;
+}
+
+header .logo h2:hover{
+    padding: 0 5px;
+    color: rgb(120, 120, 120);
+    cursor: pointer;
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(38,75,150,1);
+    -moz-box-shadow: 1px 1px 1px 0px rgba(38,75,150,1);
+    box-shadow: 1px 1px 1px 0px rgba(38,75,150,1);
+    transform: scale(1.09, 1.09);
+    transition: 0.5s;
+    border-radius: 4px;
 }
 
 header .menu ul{
     list-style-type: none;
+    padding-top: 3px;
 }
 
 header .menu ul li{
@@ -57,7 +71,15 @@ header .menu ul li:not(.not){
 }
 
 header .menu ul li:not(.not):hover{
-    border: 0.5px solid rgb(120, 120, 120);
+    background-color: #3576b8;
+    border: 0.5px solid #1a4a7a;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(1,50,149,1);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(1,50,149,1);
+    box-shadow: 0px 1px 2px 0px rgba(1,50,149,1);
+}
+
+header .menu ul li:not(.not):hover a{
+    color: white;
 }
 
 header .menu ul li input[type=text]{
@@ -68,11 +90,25 @@ header .menu ul li input[type=text]{
     margin-right: 5px;
 }
 
+header .menu ul li input[type=text]:focus{
+    outline: 0;
+    border: 0.5px solid #1a4a7a;
+}
+
 header .menu ul li i{
     border: 0.5px solid rgb(120, 120, 120);
     width: 27px;
-    padding: 7px;
+    padding: 6px;
     border-radius: 8px;
+}
+
+header .menu ul li i:hover{
+    background-color: #3576b8;
+    color: white;
+    border: 0.5px solid #1a4a7a;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(1,50,149,1);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(1,50,149,1);
+    box-shadow: 0px 1px 2px 0px rgba(1,50,149,1);
 }
 
 header .menu ul li a{
