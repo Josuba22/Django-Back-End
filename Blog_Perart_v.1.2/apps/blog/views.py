@@ -1,16 +1,16 @@
 from django.shortcuts import render
 
-def ViewsIndex(request):
+def Index(request):
     return render(request, 'index.html')
 
-def ViewsPostList(request):
+def PostList(request):
     return render(request, 'post_list.html')
 
-def ViewsPostDetail(request):
+def PostDetail(request):
     return render(request, 'post_detail.html')
 
-def ViewProdutoDetail(request):
+def ProdutoDetail(request):
     return render(request, 'produto_detail.html')
 
-def ViewNavbar(request):
+def Navbar(request):
     return render(request, 'navbar.html')
