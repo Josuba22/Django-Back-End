@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>{% block title %}Papelaria Online{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> 
+        {% block extra_head %}{% endblock %}
+    </head>
+
+    <body>
+        <header>
+            <div class="container">
+                <div class="logo left">
+                    <h1><a href="{% url 'index' %}">Perart Papelaria</a></h1>
+                </div>
+                <div class="menu right">
+                    <ul>
+                        <li><a href="{% url 'index' %}">Loja</a></li>
+                        <li><a href="{% url 'blog_post_list' %}">Blog</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li class="not">
+                            <form method="get" action="#"> 
+                                <input type="text" name="q" placeholder="Pesquise...">
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </header>
+
+        <section class="box-captura">
+            <div class="bar-top"></div>
+            <div class="container">
+                <div class="wrapper-captura">
+                    <div class="box-single-chamada">
+                        <h3>Receba dicas de papelaria e promoções!</h3>
+                    </div>
+                    <div class="box-single-captura">
+                        <form method="post" action="#">
+                            {% csrf_token %} 
+                            <input type="email" name="email" placeholder="Digite seu melhor e-mail...">
+                            <button type="submit">Cadastrar <i class="fas fa-arrow-right"></i></button>
+                        </form>
+                        <p>Seu e-mail 100% livre de spam.</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container"> 
+                {% block content %}
+                
+                {% endblock %}
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p>© 2024 Perart Papelaria. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
+    </body>
+</html>

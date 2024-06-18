@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Bem-vindo à Nossa Papelaria!</h1>
+<div class="row">
+    {% for produto in produtos %}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            {% if produto.imagem %}
+            <img src="{{ produto.imagem.url }}" class="card-img-top" alt="{{ produto.nome }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ produto.nome }}</h5>
+                <p class="card-text">{{ produto.descricao|truncatewords:10 }}</p>
+                <p class="card-text">R$ {{ produto.preco }}</p>
+                <a href="{% url 'produto_detalhes' produto.id %}" class="btn btn-primary">Ver Detalhes</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

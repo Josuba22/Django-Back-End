@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        {% load static %} 
+        <link rel="stylesheet" href="{% static 'static/navbar.css' %}">
+    </head>
+
+    <body>
+
+        <nav class="navbar">
+            <a href="{% url 'blog:index' %}">
+                <img src="{% static 'logo.svg' %}" alt="Logomarca da Papelaria" class="logo"> 
+            </a>
+            <ul class="menu">
+                <li><a href="{% url 'blog:index' %}">Início</a></li>
+                <li><a href="{% url 'blog:novidades' %}">Novidades</a></li>
+                <li><a href="{% url 'blog:dicas' %}">Dicas</a></li>
+                <li><a href="{% url 'blog:contato' %}">Contato</a></li>
+            </ul>
+        </nav>
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>
