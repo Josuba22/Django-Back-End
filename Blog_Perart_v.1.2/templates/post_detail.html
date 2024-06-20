@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
+
 {% block content %}
     <h2>{{ post.titulo }}</h2>
+    <p>Por {{ post.autor }} em {{ post.criado_em|date:'d/m/Y' }}</p>
+
     <p>{{ post.data_publicacao|date:"d/m/Y" }} by {{ post.autor }}</p>
     {% if post.imagem_destaque %}
         <img src="{{ post.imagem_destaque.url }}" alt="{{ post.titulo }}" style="max-width: 100%;">
     {% endif %}
     <p>{{ post.conteudo }}</p>
+
+    <p>Categoria: <a href='{{ post.categoria}}'
 {% endblock %}
