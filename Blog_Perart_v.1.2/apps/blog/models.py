@@ -33,20 +33,19 @@ class Post(models.Model):
     ]
     
     titulo = models.CharField(max_length=100, verbose_name='Título')
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, verbose_name='Slug')
+    imagem = models.ImageField(upload_to='post_imagens/', blank=True, null=True, verbose_name='Imagem')
     conteudo = models.TextField(verbose_name='Conteúdo')
     autor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts', verbose_name='Autor')
     criado_em = models.DateTimeField(default=timezone.now, verbose_name='Criado em')
     atualizado_em = models.DateTimeField(auto_now=True, verbose_name='Atualizado em')
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft', verbose_name='Status')
     visibilidade = models.CharField(max_length=10, choices=VISIBILITY_CHOICES, default='public', verbose_name='Visibilidade')
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Categoria', related_name='posts')
-    tags = models.ManyToManyField(Tag, related_name='posts', blank=True)
+    tags = models.ManyToManyField(Tag, related_name='posts', blank=True, verbose_name='Tags')
 
     def __str__(self):
         return self.titulo
     
     def get_absolute_url(self):
         return reverse('blog:post_detail', kwargs={'slug': self.slug})
-    
-    

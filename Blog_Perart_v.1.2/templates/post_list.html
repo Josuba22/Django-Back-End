@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+
+<h2><a href="{% url 'post_detail' post.id %}">{{ post.titulo }}</a></h2>
 {% block content %}
     <h2>Nosso Blog</h2>
     {% for post in posts %}
-        <h3><a href="{% url 'blog_post_detail' post.slug %}">{{ post.titulo }}</a></h3>
-        <p>{{ post.data_publicacao|date:"d/m/Y" }} by {{ post.autor }}</p>
+        <h3><a href="{% url 'post_detail' post.slug %}">{{ post.titulo }}</a></h3>
+        <p>{{ post.criado_em|date:"d/m/Y" }} by {{ post.autor }}</p>
         <p>{{ post.conteudo|truncatewords:50 }}</p>
     {% endfor %}
 {% endblock %}
