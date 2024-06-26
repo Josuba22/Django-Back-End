@@ -1,3 +1,6 @@
+/* Importe a fonte Poppins do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +13,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
+    font-family: 'Poppins', sans-serif; /* Aplica a fonte Poppins ao body */
 }
 
 .menu {
