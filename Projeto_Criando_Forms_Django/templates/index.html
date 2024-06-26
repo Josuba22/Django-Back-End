@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lista de Celulares</title>
+    </head>
+
+    <body>
+        <h1>Lista de Celulares</h1>
+
+        <a href="{% url 'novo_celular' %}">Cadastrar Novo Celular</a> <br><br>
+
+        <ul>
+            {% for celular in celulares %}
+                <li>
+                    <a href="{% url 'detalhes_celular' celular.id %}">{{ celular.modelo }} - {{ celular.ano_fabricacao }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

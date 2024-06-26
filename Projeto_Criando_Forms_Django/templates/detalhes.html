@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Detalhes do Celular</title>
+    </head>
+
+    <body>
+        <h1>Detalhes do Celular</h1>
+
+        <p>Modelo: {{ celular.modelo }}</p>
+        <p>Ano de Fabricação: {{ celular.ano_fabricacao }}</p>
+
+        <a href="{% url 'lista_celulares' %}">Voltar para a Lista</a>
+    </body>
+</html>
