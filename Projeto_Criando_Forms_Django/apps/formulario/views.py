@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Celulares
-from .forms import CelularForm
+from .models import *
+from .forms import *
 
 def lista_celulares(request):
     celulares = Celulares.objects.all()
