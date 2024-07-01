@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulário: Capturar Leads</title>
+    </head>
+
+    <body>
+        <h1>Cadastre-se para receber novidades da Perart!</h1>
+        <form method="post" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Enviar</button>
+            <button type="reset">Cancelar</button>
+        </form>
+    </body>
+</html>
