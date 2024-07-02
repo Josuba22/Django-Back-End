@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lista de Contatos</title>
+    </head>
+
+    <body>
+        <h1>Lista de Contatos</h1>
+
+        <ul>
+            {% for lead in leads %}
+                <li>{{ lead.nome }} - {{ lead.email }} - {{ lead.telefone }} - {{ lead.mensagem }} | <a href="{% url 'pg_editar_lead' lead.id %}">Editar lead</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

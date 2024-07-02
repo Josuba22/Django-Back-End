@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Detalhes do Produto</title>
+    </head>
+
+    <body>
+        <h1>{{ produto.nome }}</h1>
+        <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" width="300">
+        <p>{{ produto.descricao }}</p>
+        <p>Categoria: {{ produto.categoria }}</p>
+        <p>R$ {{ produto.valor }}</p>
+        <a href="{% url 'index' %}">Voltar</a>
+    </body>
+</html>
