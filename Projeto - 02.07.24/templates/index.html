@@ -1,26 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <title>E-commerce</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}"/>
+        <link rel="stylesheet" href="{% static 'index.css' %}"/>
     </head>
 
     <body>
-        <h1>Nossos Produtos</h1>
-        <a href="{% url 'adicionar_categoria' %}">
-            <button>+ Categoria</button>
-        </a>
-        <a href="{% url 'adicionar_produto' %}">
-            <button>+ Produtos</button>
-        </a>
-        <div>
-            {% for produto in produtos %}
-                <div>
-                    <h2>{{ produto.nome }}</h2>
-                    <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" width="200">
-                    <p>R$ {{ produto.valor }}</p>
-                    <a href="{% url 'detalhes_produto' produto.id %}">Ver Detalhes</a>
-                </div>
-            {% endfor %}
+        <div class="container">
+            <h1>Nossos Produtos</h1>
+            <a href="{% url 'adicionar_categoria' %}">
+                <button>+ Categoria</button>
+            </a>
+            <a href="{% url 'adicionar_produto' %}">
+                <button>+ Produtos</button>
+            </a>
+
+            <div class="product-list">
+                {% for produto in produtos %}
+                    <div class="product-card">
+                        <h2>{{ produto.nome }}</h2>
+                        <img src="{{ produto.foto_produto.url }}" alt="{{ produto.nome }}" width="200">
+                        <p>R$ {{ produto.valor }}</p>
+                        <a href="{% url 'detalhes_produto' produto.id %}">Ver Detalhes</a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </body>
 </html>

@@ -1,16 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Adicionar Produto</title>
+        <title>{% block title %}Adicionar Produto{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}"/>
+        <link rel="stylesheet" href="{% static 'adicionar_produto.css' %}"/>
     </head>
 
     <body>
-        <h1>Adicionar Produto</h1>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Salvar</button>
-        </form>
-        <a href="{% url 'index' %}">Voltar</a>
+        <div class="container">
+            <h1>Adicionar Produto</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Salvar</button>
+            </form>
+            <a href="{% url 'index' %}">Voltar</a>
+        <div>
     </body>
 </html>

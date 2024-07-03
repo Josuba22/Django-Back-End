@@ -1,15 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <title>Detalhes do Produto</title>
+        <link rel="stylesheet" href="{% static 'detalhes_produto.css' %}"/>
+        <link rel="stylesheet" href="{% static 'style.css' %}"/>
     </head>
 
     <body>
-        <h1>{{ produto.nome }}</h1>
-        <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" width="300">
-        <p>{{ produto.descricao }}</p>
-        <p>Categoria: {{ produto.categoria }}</p>
-        <p>R$ {{ produto.valor }}</p>
-        <a href="{% url 'index' %}">Voltar</a>
+        <div class="container">
+            <div class="product-details">
+                <img src="{% static produto.foto_produto.url %}" alt="{{ produto.nome }}" width="300">
+                
+                <div class="product-details-info">
+                    <h1>{{ produto.nome }}</h1>
+                    <p>{{ produto.descricao }}</p>
+                    <p><strong>Categoria:</strong> {{ produto.categoria }}</p>
+                    <p><strong>Preço:</strong> R$ {{ produto.valor }}</p>
+
+                    <button class="buy-button">Comprar Agora</button>
+                </div>
+            </div>
+            
+            <a href="{% url 'index' %}">Voltar</a>
+        </div>
     </body>
 </html>
