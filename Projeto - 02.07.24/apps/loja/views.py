@@ -29,3 +29,10 @@ def adicionar_categoria(request):
     else:
         form = CategoriaForm()
     return render(request, 'adicionar_categoria.html', {'form': form})
+
+def ExcluirProduto(request, id_produto):
+    busca_produto = Produto.objects.get(id=id_produto)
+    if request.method == 'POST':
+        busca_produto.delete()
+        return redirect('index')
+    return render(request, 'conf_excluir_produto.html', {'produto': busca_produto})

@@ -10,7 +10,7 @@
     <body>
         <div class="container">
             <div class="product-details">
-                <img src="{% static produto.foto_produto.url %}" alt="{{ produto.nome }}" width="300">
+                <img src="{{ produto.foto_produto.url }}" alt="{{ produto.nome }}" width="300">
                 
                 <div class="product-details-info">
                     <h1>{{ produto.nome }}</h1>

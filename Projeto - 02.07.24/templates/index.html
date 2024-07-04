@@ -24,6 +24,7 @@
                         <img src="{{ produto.foto_produto.url }}" alt="{{ produto.nome }}" width="200">
                         <p>R$ {{ produto.valor }}</p>
                         <a href="{% url 'detalhes_produto' produto.id %}">Ver Detalhes</a>
+                        <a href="{% url 'conf_excluir_produto' produto.id %}">Excluir Produto</a>
                     </div>
                 {% endfor %}
             </div>
