@@ -36,3 +36,14 @@ def ExcluirProduto(request, id_produto):
         busca_produto.delete()
         return redirect('index')
     return render(request, 'conf_excluir_produto.html', {'produto': busca_produto})
+
+def EditarProduto(request, id_produto):
+    busca_produto = Produto.objects.get(id=id_produto)
+    if request.method == 'POST':
+        produto_editado = ProdutoForm(request.POST, instance=busca_produto)
+        if produto_editado.is_valid():
+            produto_editado.save()
+            return redirect('index')
+    else:
+        produto_editado = ProdutoForm(instance=busca_produto)
+    return render(request, 'adicionar_produto.html', {"form": produto_editado})
